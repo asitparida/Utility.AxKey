@@ -20,9 +20,12 @@
                          if (value) {
                              scope._origTabindex = element.attr('tabindex');
                              element.attr('tabindex', -1);
+                             element.attr('aria-disabled', true);
                          }
-                         else
+                         else {
                              element.attr('tabindex', scope._origTabindex);
+                             element.attr('aria-disabled', false);
+                         }
                      }));
                      element.on('click', function (e) {
                          if (scope.$eval(attr['axDisabled']) || scope.$eval(attr['ngDisabled']))
